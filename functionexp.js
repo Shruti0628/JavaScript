@@ -14,3 +14,10 @@ res(5,10);
 (function sum(a,b){
     console.log("Sum is:", a+b);
 })(5,10);
+
+//This is an arrow function expression example
+const sum = (a,b)=>{
+    let res = `Sum is : ${a+b}`;
+    console.log(res);
+}
+sum(5,10);
