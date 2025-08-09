@@ -20,6 +20,10 @@ months.splice(indexToUpdate,1,"March");
 console.log(months);
 
 //4. Ans->
-const delIndex = months.indexOf("June");
+const delIndex = months.indexOf("June", "Dec");
 months.splice(delIndex,1);
+// months.splice(delIndex,2);
 console.log(months);
+
+//  0 -> It's from starting index from this position and for removing nothing.
+// 1-> It's from starting from this position and removing only one element.
