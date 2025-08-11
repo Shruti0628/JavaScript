@@ -33,3 +33,25 @@ console.log(result3);
    Also, slice(start, end) does "NOT SWAP", if start>end, it just returns an empty string, whereas 
          substring(start,end) "SWAPS" automatically, if start>end.
 */
+
+//replace() and replaceAll() are the methods that will help to replace the characters at that position
+
+/* Extracting String Characters: There are 3 methods for extracting string characters.
+   1. charAt(): It returns the character at a specified index in a string.
+   2. charCodeAt(): It returns the code of the character at a specified index in a string. The method returns a UTF-16 code i.e. ASCII code
+   3. at(): It returns the character at a specified index in a string. It allows the use of negative indexes while charAt() don't.
+*/
+
+/* Replacing String Content:
+   1. replace(): The replace() is used to replace a specified value with another value.
+      g =  in regular expression, is used for global that means the places there are the word all changes can be done.
+      i =  in regular expression, is used for considering the case-sensitive alphabets.
+*/
+
+/* Other Useful Methods:
+   1. toUpperCase() and toLowerCase(): Converts the string to uppercase or lowercase.
+   2. trim(): Removes whitespaces from the both ends of the string.
+   3. split(): Splits the string into an array of substrings based on a specified delimiter.
+   4. reverse(): Will reverse the elements easily.
+   5. join(): Will join the string after split easily.
+*/
