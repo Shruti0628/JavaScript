@@ -4,6 +4,7 @@
     iterate through the letters and print each one on a new line.*/
 /* 2. Write a fn(), to count the number of vowels in a string? */
 /* 3. Write a fn(), to check if all the vowels presents in a string or not? */
+/* 4. Write a fn(), to check if the sentence has pangram or not. [Hint: Pangram means a sentence or phrase that contains every letter of the alphabet at least once]*/
 
 
 // 1. Ans:
@@ -47,4 +48,25 @@ if(bool_vowel()){
 }
 else{
     console.log("Vowels aren't present");
+}
+
+// 4. Ans:-
+let sent1 = "Hello World";
+let lowerSent = sent1.toLowerCase();
+let start = "a".charCodeAt(0);
+let end = "z".charCodeAt(0);
+const panagram = (()=>{
+    for(let i = start; i<=end; i++){
+       let currentChar = String.fromCharCode(i);
+       if(!lowerSent.includes(currentChar)){
+        return false;
+       }
+    }
+    return true;
+});
+
+if(panagram()){
+    console.log("It's a panagram");
+}else{
+    console.log("It's not a panagram");
 }
