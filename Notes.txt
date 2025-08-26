@@ -1,0 +1,80 @@
+
+1. Object (refresher)
+Definition: A container of key–value pairs; values can be data or functions (methods).
+Why: window is just a special, giant object.
+Analogy: A toolbox with labeled compartments (keys) holding tools or items (values).
+
+2. Runtime & Global Object
+Definition: The global object is the top-level object created by the environment. In browsers it’s window; the universal name is globalThis.
+Why: Anything “global” hangs off this object.
+Analogy: City Hall—central registry for everything public.
+
+3. What is window?
+Definition: The global object in the browser, representing the current tab/window.
+Why: It’s where browser features + your page’s APIs live.
+Analogy: The entire house (the tab) that contains rooms and utilities.
+
+Window
+1. Window is the main container or we can say the global object and any operations related to entire browser window can be a part of window object.
+2. All the members like objects, methods, or properties. If they are the part of window object, then we do not refer the window object.
+3. Window has methods, properties, and object. Ex: setTimeout() or setInterval() are the methods, where as Document is the object of the Window and it also has a screen object with properties describing the physical display.
+
+window (global)
+├─ document (DOM)
+├─ location | history | navigator | screen (BOM)
+├─ console
+├─ timers: setTimeout/setInterval
+├─ storage: localStorage/sessionStorage
+└─ events: load/resize/scroll/online/offline/beforeunload
+
+In browsers, window is the global object representing the whole browser tab. It stores the DOM (your HTML), the BOM (browser features), and global functions/variables so JavaScript can interact with the page and the browser.
+
+House Analogy for window
+Window = the entire house (your browser tab)
+Inside it, you have:
+1. DOM (Document Object Model) → Living Room
+Definition: A tree-like structure representing your HTML elements in memory so JS can change them.
+In House Analogy:
+The living room with furniture and decorations = the content you see (headings, images, buttons).
+Effect: JS can rearrange furniture, repaint walls, or add new items (change the webpage content dynamically).
+
+2. BOM (Browser Object Model) → House Utilities
+Definition: Objects that give JS access to browser features and represents browsers as an objects and provides methods and properties for interacting but, not directly related to page content.
+In House Analogy:
+Utilities like electricity, water supply, internet — they aren’t furniture, but they keep the house functional.
+Common BOM Objects:
+1.location → house address (URL)
+2.history → list of past addresses (visited pages)
+3.navigator → info about the house's setup (browser/device info)
+4.screen → size of the house's windows (screen resolution)
+
+3. Built-in Functions → House Tool
+Definition: Predefined methods available globally to make common tasks easy.
+In House Analogy:
+Ready-to-use tools like a timer, intercom, or camera you can use anytime.
+
+
+
+-> How window Helps JavaScript
+The window object holds the living room (DOM), utilities (BOM), and tools (built-in functions) all in one place.
+JavaScript is like you living in the house:
+You use the living room (DOM) to rearrange or decorate (update the page)
+You control utilities (BOM) like internet or electricity (browser features)
+You use the built-in tools whenever needed (alerts, timers)
+
+Without the window, JS would have no way to:
+
+Access HTML elements
+Read/change the URL
+Run timers or alerts
+Respond to browser events like resize or scroll
+
+
+So, while DOM is focused on content of the page, BOM is focused on the browser environment.
+For example to get the URL of the webpage - we can write the, window.location.href {This is BOM}
+For example to change the title of the content of the webpage: document.h1 = "Hello World"
+
+We can see when we inspect and write "document.body.childNodes", there is <text> as well when we see at DOM like structure that <text> represents the new line count
+
+DOM properties: example-document, getElementById(id),etc.
+DOM methods: createElement(tagName), appendChild(node),etc.
