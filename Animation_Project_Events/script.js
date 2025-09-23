@@ -12,5 +12,5 @@ function handleMouseEvents2() {
     rect.classList.add("addTransition"); //to add the transition effect on double click
 };
 
-myButton.addEventListener("click", handleMouseEvents); //since, no args are passed, we can use directly a function rather than a callback function
+myButton.addEventListener("click", handleMouseEvents); //since, no args are passed, we can use directly a function rather than a cal
 myButton.addEventListener("dblclick",handleMouseEvents2);
