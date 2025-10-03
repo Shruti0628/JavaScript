@@ -1,0 +1,62 @@
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    gap: 20px;
+    background-color: #f0f0f0;
+      background-image: linear-gradient(to right, rgb(92, 145, 229), rgb(152, 63, 198));
+}
+
+.container{
+    display: flex;
+    gap: 20px;
+}
+
+#myButton, #myButton2{
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 32px;
+    height: 48px;
+    width: 120px;
+    border: none;
+    cursor: pointer;
+}
+
+#myButton{
+    background-color: rgb(92, 145, 229);
+    color: white;
+}
+
+#myButton2{
+    background-color: rgb(152, 63, 198);
+    color: white;
+}
+
+.colorCode{
+    background: white;
+    padding: 10px 10px;
+    margin: 2px 2px 2px 0px;
+    border-radius: 8px;
+    font-family: monospace;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
+    font-size: 12px;
+}
+
+#copyButton{
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: none;
+    background-color: rgb(92, 145, 229);
+    color: white;
+    cursor: pointer;
+    height: 36px;
+    width: 72px;
+}
+
+
