@@ -16,11 +16,12 @@ const form = document.querySelector("form");
 const removeTodoList = (e) =>{
     const todoRemove = e.target;
     let todoListContent = todoRemove.previousElementSibling.textContent;
-    localTodoLists.filter((currentTodo) =>{
+    localTodoLists = localTodoLists.filter((currentTodo) => {
         return currentTodo !== todoListContent;
     });
     // Updating localStorage with new array
     localStorage.setItem("todoLists", JSON.stringify(localTodoLists));
+    console.log(todoListContent);
     console.log(localTodoLists);
 }
 
