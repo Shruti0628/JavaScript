@@ -98,7 +98,7 @@ console.log(newDate);
 
 // WAP to calculate the difference in days between two given dates
 const dateDifference = (date1, date2) => {
-    let oneDay = 24 * 60 * 60 * 1000; // Converting days to milliseconds i.e. 864000000 milliseconds. 
+    let oneDay = 24 * 60 * 60 * 1000; // Converting days to milliseconds i.e. 864000000 milliseconds.  
     const difference = Math.abs(date2 - date1);
     return Math.round(difference / oneDay);
 };
