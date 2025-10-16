@@ -79,3 +79,30 @@ const parsedDate = Date.parse(parsed);
 console.log(parsedDate)
 
 /* 5. now(): to represent current date, time, milliseconds, seconds, hours, etc. Also it's also static */
+
+
+// WAP to add a specified numbers of days to a given date
+const addDaysToDate = (date, extraDays) => {
+    // console.log(date);
+    // console.log(date.setDate(date.getDate() + extraDays)); //Helps to get the new date afer adding extra days in milliseconds.
+    // console.log(new Date(1711756800000));
+    // return date;
+
+    let updatedDate = date.setDate(date.getDate() + extraDays);
+    updatedDate = new Date(updatedDate);
+    return updatedDate;
+}
+const date = new Date("2024-03-25");
+const newDate = addDaysToDate(date, 5);
+console.log(newDate);
+
+// WAP to calculate the difference in days between two given dates
+const dateDifference = (date1, date2) => {
+    let oneDay = 24 * 60 * 60 * 1000; // Converting days to milliseconds i.e. 864000000 milliseconds. 
+    const difference = Math.abs(date2 - date1);
+    return Math.round(difference / oneDay);
+};
+
+const d1 = new Date();
+const d2 = new Date("2025-03-06");
+console.log(dateDifference(d1, d2));
