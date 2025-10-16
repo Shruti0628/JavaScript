@@ -1,0 +1,26 @@
+/* What are Timing Based Events?
+-> Timing Based Events are those events that occur after a certain time interval or delay.
+
+There are primarily two types of timing based events and they are listed below: 
+1. setTimeout() : The setTimeout() is used to execute a function or code block after a specified delay in milliseconds.
+2. setInterval() : The setInterval() is used to repeatedly execute a function or code block at a specified interval in milliseconds.
+
+
+--- NOTE ---
+When we just need to call the function without argument, we can simply call the function name 
+When we need to call the function with argument, we need to use an anonymous function or fat arrow function to wrap the function call with argument.
+
+1. clearTimeout() : The clearTimeout() method is used to cancel a timeout that was previously established by calling setTimeout().
+2. clearInterval() : The clearInterval() method is used to cancel a timed, repeating action which was previously established by a call to setInterval().
+
+
+Example:
+function delayedFunction(){
+console.log("Function was delayed by 2000 milliseconds i.e. 2 seconds")
+}
+const myWork = setTimeout(delayedFunction, 2000); 
+clearTimeout(myWork); // This will cancel the above setTimeout() function call.
+
+Do the same for clearInterval().
+
+*/
