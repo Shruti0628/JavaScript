@@ -1,0 +1,38 @@
+body{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height:100vh;
+    margin:0;
+}
+.clock{
+    background-color:white;
+    font-size: 64px;
+    height: 350px;
+    width: 75vb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 15px;
+    border: 20px solid #ffc400; /* dark, bold border */
+    box-sizing: border-box; /* ensure border doesn't grow the element */
+    padding: 12px; /* space between border and content */
+    box-shadow:0 0 20px rgba(255, 255, 255, 0.977),  /* Added: outer glow */
+                inset 0 0 20px rgb(255, 255, 255);   /* Added: inner shadow */
+    gap: 12px;
+
+}
+#time{
+    font-family: 'Open Sans', sans-serif;
+    color: rgb(255, 153, 0);
+    font-size: 72px;
+    letter-spacing: 10px;
+}
+#date{
+    font-family: 'Open Sans', sans-serif;
+    color: rgb(255, 153, 0);
+    font-size: 56px;
+    letter-spacing: 4px;
+}
