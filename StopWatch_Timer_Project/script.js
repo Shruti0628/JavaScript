@@ -45,34 +45,53 @@ const resetTimer = () => {
     updateTime();
 }
 
+// ...existing code...
+
 const lapTimer = () => {
-    if(intervalID === null) return; // Prevent lap if timer not running
-    const lap_time = curr_time.textContent;
-    const originalContent = curr_time.textContent;
-    curr_time.textContent = `Lapped Time: ${lap_time}`;
-    curr_time.classList.add("lapped");
-    // Storing current time values to show lapped times
-    const currentHours = hours;
-    const currentMinutes = minutes;
-    const currentSeconds = seconds;
-    // Timer continues in background for accurate timekeeping
-    const tempIntervalID = intervalID
+    if (intervalID === null) return;
+    
+    // Store current time values
+    const lappedHours = hours;
+    const lappedMinutes = minutes;
+    const lappedSeconds = seconds;
+    
+    // Show lapped time with different styling
+    const lappedTime = curr_time.textContent;
+    curr_time.textContent = `Lapped: ${lappedTime}`;
+    curr_time.classList.add('lapped');
+    
+    // Pause the current timer
     clearInterval(intervalID);
-    // Wait for any button clicks
-    const resumeTimer = () => {
-        if ( tempIntervalID === intervalID) {
-            hours = currentHours;
-            minutes = currentMinutes;
-            seconds = currentSeconds;
-            startTimer();
+    intervalID = null;  // Important: Reset intervalID
+    
+    // Function to resume from lapped time
+    const resumeFromLap = (e) => {
+        curr_time.classList.remove('lapped');
+        
+        // Only resume if Start button is clicked
+        if (e.target.id === 'start') {
+            hours = lappedHours;
+            minutes = lappedMinutes;
+            seconds = lappedSeconds;
+            updateTime(); // Update display first
+            startTimer(); // Then start timer
+        } else if (e.target.id === 'reset') {
+            resetTimer();
         }
-        updateTime();
+        
+        // Remove event listeners
+        ['start', 'stop', 'reset', 'lap'].forEach(btn => {
+            document.getElementById(btn).removeEventListener('click', resumeFromLap);
+        });
     };
-    start_btn.addEventListener("click", resumeTimer, { once: true });
-    stop_btn.addEventListener("click", resumeTimer, { once: true });
-    reset_btn.addEventListener("click", resumeTimer, { once: true });
-    lap_btn.addEventListener("click", resumeTimer, { once: true });
-}
+
+    // Add one-time click listeners to all buttons
+    ['start', 'stop', 'reset', 'lap'].forEach(btn => {
+        document.getElementById(btn).addEventListener('click', resumeFromLap, { once: true });
+    });
+};
+
+// ...existing code...
 start_btn.addEventListener("click", startTimer);
 stop_btn.addEventListener("click", stopTimer);
 reset_btn.addEventListener("click", resetTimer);
