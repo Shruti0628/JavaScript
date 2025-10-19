@@ -62,7 +62,7 @@ const lapTimer = () => {
     
     // Pause the current timer
     clearInterval(intervalID);
-    intervalID = null;  // Important: Reset intervalID
+    intervalID = null;  // Important: Reset intervalID to indicate timer is stopped
     
     // Function to resume from lapped time
     const resumeFromLap = (e) => {
@@ -77,7 +77,7 @@ const lapTimer = () => {
             startTimer(); // Then start timer
         } else if (e.target.id === 'reset') {
             resetTimer();
-        }
+        } 
         
         // Remove event listeners
         ['start', 'stop', 'reset', 'lap'].forEach(btn => {
