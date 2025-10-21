@@ -1,0 +1,42 @@
+How JS works/runs?
+
+1. JS code 
+2. Parsing ---> Lexical Parser (converts program down to tokens)
+               |__ Syntax Parser ( Checks for syntax and create AST(parse tree) if correct)
+
+3. Compilation (JIT Compilation) -> converts JS code into machine code/byte code
+4. Execution Phase ( In execution phase, we've call stack with 1. Creation Phase, 2. Execution Contexts and Heap Memory)
+5. Final Output
+
+
+Q.1. Difference between AOT and JIT?
+
+Ans: The difference is AOT (Ahead of Time) compilation means your whole source code is compile first and results executable runs. Whereas, JIT means (Just-In-Time) where your source code gets compiled in the runtime and gets optimized for hotspots.
+        ---ANALOGY---
+Suppose, in our childhood days, when teacher use to give us homeworks for current chapter, a group of students use to do the following chapter exercise as welll to reduce the load the next day. So, doing the exercise of following chapter is basically AOT.
+Whereas, when a group of students use to do the following chapter exercise on the same day when it is taught then, that's JIT.
+
+Q.2. Why JS is often referred as a hybrid language?
+
+Ans: It's a hybrid interpreter and compiler because modern engines blends both approaches for optimal performance
+Code is parsed and executed line by line for quick startup, and also uses JIT compilation to convert hotspots into faster machine codes at runtime, resulting in a balance fast loading with high speed for complex apps.
+
+Q.3. What is execution phase?
+
+Ans: Once, code is compiled JS engine executes that. During execution, engine creates execution contexts, manages scope chain, handles var assignments, and call functions.
+The EXECUTION CONTEXT has 2 phases: 
+|__ Creation Phase ( where var and functions are hoisted ) Also, it creates GEC and its pushed to call stack. 
+|__ Execution Phase ( where code actually runs )
+
+
+The JS uses a "call stack" to keep track of the EXECUTION CONTEXT. When a function is called, a new frame is added to the stack, and when that completes, its frame is removed in a LIFO order (Last-In-First-Out)
+---CALL STACK---
+In order to manage execution contexts, the JS uses a call stack. 
+
+Q.4. What is a call stack?
+
+Ans: The call stack is a data structure that keeps track of currently executing functions in a program. It operates on LIFO principle, meaning last function added to the stack gets executed first and gets completed.
+
+Q.5. What is a heap memory?
+
+Ans: Heap memory is where dyanmically allocated memory resides. This is where objects, closures, and other dynamically allocaated data are stored. While call stack manages flow of execution and functio contexts, heap memory holds data that is referenced by these execution contexts.
