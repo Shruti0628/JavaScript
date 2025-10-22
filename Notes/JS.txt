@@ -40,3 +40,47 @@ Ans: The call stack is a data structure that keeps track of currently executing 
 Q.5. What is a heap memory?
 
 Ans: Heap memory is where dyanmically allocated memory resides. This is where objects, closures, and other dynamically allocaated data are stored. While call stack manages flow of execution and functio contexts, heap memory holds data that is referenced by these execution contexts.
+
+
+# Synchronous code: It's the code that executes line by line blocking further execution until each line is completed.
+# Asynchronous code: It's the code that allows other code to continue executing while it waits for an asynchronous operation to complete.
+
+Global Execution Context: Here, we get to know about global objects, "this" keyword, outer scope and memory allocation(hoisting)
+
+Web APIS: It's provided by the browser and contains TIMERS, DOM, AJAX/API CALLS, AND OTHERS Asynchronous
+
+Event Loop : It's work is to check and pass operations remaining in CALLBACK QUEUE, checking if call stack is empty or not.
+
+                        --------Hoisting---------
+Hoisting is a JS mechanism where var and functions declarations are moved to the top of their scope before code executes. This means that no matter where functions and var are declared, they are moved to top of their scope regardless of whether their scope is global or local.
+Also, a point to remember is these 2 points:
+1. Whenever we are declaring variables under "let" and "const" they can never be hoisted because they remain in block scope.
+2. If we use fat arrow functions, again it can not be hoisted it needs to be declared and defined.
+
+
+                        -------Scope in JS--------
+The scope in JS refers to the context in which var are declared and accessed. It defines the visibility and lifetime of var. When a var is declared, it's bound to a specific scope, and it's accessibility is determined by that scope.
+Function and Block Scope can be referred as "Local Scope" as well.
+
+# Lexical Scoping: Lexical scoping in JS is like a set of rules that determines where a variable can be used in your code. It follows the physical structure of your code, so if a var is declared inside a function or block, it can be used only within that function or block.
+It works like manager.
+
+# Scope Chaining: It is the process by which JS, when looking for the value of a var checks current scope and then looks in outer(enclosing)scopes until it finds var or reaches global scope. In scope chaining, inner child can access it's parent's data but vice-versa isn't allowed.
+
+# Global Variable V/S Local Variable
+Global Variable: A var declared in global scope is referred to as a global var. It has global visibility and can be accessed from anywhere in the code.
+Local Variable: A var declared within a function or a block is often referred to as a local var. It has local visibility, limited to function or block where it's declared.
+
+                        -------Closures-----
+A closure is created when an inner function has access to variables of it's outer function, even after outer function has finished executing;.
+And since, the execution context gets removed once its executed getting access of the variable is done by referencing to the heap memory. The heap memory stores the data and returns when required. Objects, clousres and other dynamically allocated datas are stored.
+
+Eg:
+function multiplier(factor){
+        return function(number){
+                console.log(number, factor);
+                return number * factorl
+        };
+}
+const double = multiplier(2);
+console.log(double(5));
