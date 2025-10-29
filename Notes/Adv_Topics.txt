@@ -1,0 +1,47 @@
+Here, we'll discuss about advance topics in JS 
+        
+        ------TABLE OF CONTENTS------
+
+1. Event Propagation (Event Bubbling and Event Capturing)
+2. High Order Function
+3. Callback Function
+4. Closures & Function Currying
+5. CallBack Hell
+6. Fetch API
+7. Promises
+8. Async-Await
+9. Error-Handling in JS
+
+        ------Event Propagation-------
+It refers to the process of how events propagate or travel through the DOM (Document Object Model) hierarchy.
+In JS, there are 2 phases of event propagation:
+1. Capturing Phase, 2. Bubbling Phase.
+
+Eg: here are 3 layers of the box alright
+
+        |____Outer Layer
+        |_____Middle Layer
+        |_____Inner Layer
+    
+    So, suppose I am targetting to the inner layer if I click it should display the inner layer,
+    When we click to inner layer, the first inner layer will get clicked and then it gets followed by the upper layers as well in a sequence until and unless it reaches to the root element.
+    
+    That is, the sequence becomes : 
+      
+        |___Inner Layer
+        |___Middle Layer
+        |___Outer Layer
+
+    This from bottom to top flow or approach is said to be as: " Bubbling Phase " or "Bottom-Up Approach".
+
+    And if suppose the target phase is again the "Inner Layer", and if first the event starts from root of the DOM and reaches to target element, 
+    that is said to be in " Capturing Phase" or "Top-Down Approach".
+    
+    Then the sequence becomes:
+
+        |___Outer Layer
+        |___Middle Layer
+        |___Inner Layer
+
+     Also, by default event always travels or works in Bubbling Phase.
+
