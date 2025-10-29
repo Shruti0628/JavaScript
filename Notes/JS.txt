@@ -149,3 +149,121 @@ console.log(country.split(""));
 
 // New way using ... (spread operator)
 console.log([...country]);
+
+                -----REST PARAMETERS-----
+                
+Here, the rest parameters syntax allows a function to accept an indefinite no of arguments as an array, providing more flexibility to work with 
+functions that can accept varying no of arguments. We use ... (3 dots) in function within paranthesis or arg then it's called as  rest parameters. There is a difference between spread and rest parameters.
+
+Eg: Here, is a traditional approach v/s rest parameters approach of doing sum.
+
+# Traditional approach:  
+const sum = (a,b,c,d)=>{
+         return a+b+c+d;
+};
+console.log(sum(1,2,3,4,5));
+
+# Rest parameters approach:
+const sum = (...numbers) => {
+       return numbers.reduce((accum,currVal) => (accum = accum + currVal),0); 
+};
+console.log(sum(1,2,3,4,5));
+
+# NOTE:
+Whenever we are working with rest parameters, a function definition can only have one rest parameter, and the rest parameter is generally written in the last (similar to default arg as written) in the function definition. Because, rest parameters will conclude everything at once or sum up.
+
+                ---- EXPONENTIAL METHODS----
+Exponentiation operator is represented by a double asterisk **. The operator can be only used with numeric values.
+Eg: 
+        base = 2
+        exponent = 3
+        console.log("Using Exponentiation method", base ** exponent) // This will result into 2*2*2
+
+                -----STRING PADDING-----
+String padding in JS is a way to add extra characters (like spaces) to a string to make it a specific length.
+Eg: const companyName = "Yatra";
+const paddedName = companyName.padStart(20);
+console.log(paddedName);
+padEnd(20) -> take similar example as given above and it will give me spaces at end.
+
+                ---TRAILING COMMAS---
+These are used to dynamically add values, or arg as per required alright.
+Eg: const sum (temp1, temp2, temp3.)=>{
+        return temp1+temp2+temp3;
+}       
+
+                -----Array.flat & Array.flatMap-----
+flat() is a new array instance method that can create a one-dimensional array from a multidimensional array.
+Eg:
+        const nestedArray = [1,2[3,4],5];
+        const flattenedArray = nestedArray.flat(); // nestedArray.flat(2) -> this will remove 2 nested arrays within a single array alright like [1,[2,[3,4],5]]
+        console.log(flattenedArray); // It will show as [1,2,3,4,5];
+
+flatMap() is a new Array instance method that combines flat() with map(). It's useful when calling a function that returns an array in the map() callback, but you want your resulted array to be flat.
+Eg:
+        const arr = ["My name", "is Shruti", "Rouniyar"];
+        const newArr = arr.flatMap((currVal)=>currVal.split(" "));
+        console.log(newArr); // Will show output as: ['My', 'name', 'is', 'Shruti', 'Rouniyar'];
+
+
+                ----Object.fromEntries()----
+Objects have an entries(). It returns an array containing all the object own properties, as an array of [key,value] pairs:
+Eg:
+        const person = {
+                name: "Shruti",
+                age: 22
+        };
+        const entries = Object.entries(person);
+        console.log(entries); // [[ 'name', 'Shruti'], ['age', 22]]
+
+        const newPerson = Object.fromEntries(entries);
+        console.log(newPerson); // {name: 'Shruti', age: 22}
+
+                ------Symbol.prototype.description------
+In JS, a Symbol is a primitive data type introduced in ES6. It represents a unique identifier that is immutable and guaranteed to be unique. Symbols are often used as property keys in objects to avoid naming conflicts.
+
+                -----Optional Catch Binding-----
+In ES10, a new feature called "optional catch binding" was introducedd for the try...catch statement. This feature allows you to omit parameter in the catch block, making it optional.
+Eg: 
+        Earlier, we used to write:
+        try{
+                // Code block for catching error
+        } catch(e){
+                // Handling error
+        }
+
+        Using optional parameter:
+        try{
+                // Code block for catching error
+        } catch{
+                // Handling error
+        }
+
+                -----Nullish Coalescing Operator(??) -----
+In JS, nullish coalescing operator(??) is a logical operator that provides a concise way to handle nullis ( null or undefined ) values. It returns its right-hand operand when it's left-hand operand is null or undefined, otherwise it returns left-hand operand.
+Eg: 
+        let num = 0; //falsy
+        new_num = num ?? 10;
+        console.log( new_num ); // Here, since its num=0, that's a falsy value then it's output will be 0 alright.
+
+                -----Optional Chaining Operator(?.)-----
+It provides a concise way to access properties of an object without worrying about existence of intermediate properties. It's particulary useful when working with nested objects or accessing properties of objects that maybe null or undefined.
+Eg:
+        const person = {
+                name: "Shruti",
+                address: {
+                        city: "Biratnagar",
+                        zipcode: 55613,
+                        province: "Koshi"
+                },
+                age: 22,
+                gender: "F"
+        };
+
+        // Accessing the city without using Optional Chaining
+        const city = person.address ? person.address.city : "City unknown";
+        console.log(city); 
+
+        // Accessing with the help of optional chaining method
+        const city1 = person.address ?. city : "City is unknown";
+        console.log(city1);
