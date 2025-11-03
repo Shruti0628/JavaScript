@@ -45,3 +45,151 @@ Eg: here are 3 layers of the box alright
 
      Also, by default event always travels or works in Bubbling Phase.
 
+To, stop this propagation we can from bottom to top we can use function of stopPropagation().
+
+But, if we've to do reverse, i.e. capturing phase we can simply pass one more argument that is additional with it in eventListener i.e. true or false boolean values. So, if we click the inner component it will travel from top to bottom.
+
+                -----EVENT DELEGATION-----
+Event delegation is a concept in JS where instead of attaching event listener to individual elements, you attach a single event listener to a common
+ancestor of those parents. This is particularly useful when you have a large no of similar elements and want to reduce no of event listeners, improving performance and simplifying code.
+Eg: 
+Suppose there is a HTML file where it shows it's UI as:
+        Ques. Which programming language do you like the most?
+        1. JS
+        2. C++
+        3. Python
+        4. C
+So, instead of adding event listeners repeatedly, we can simply make a function for the parent and let the rest of the options be called.
+Eg:
+        ---In JS file---
+        const getList = (e) => {
+                console.log(e.target);
+                document.getElementById("listValue").innerHTML = 
+                e.target.textContent;
+        };
+        document.
+        getElementById("myList")
+        .addEventListener("click",getList);
+Refer to file: Event_Delegation.js and Event_Delegation.html
+
+                -----First Class Function-----
+A "first-class-functions" means that functions can be treated as values assigned to variables, and passed around as arguments.
+Eg:
+        function sayHello(name){
+                return "Hello, " + name + "!";
+        }
+        var greetFunction = sayHello;
+        console.log(greetFunction("Shruti"));
+
+                -----Higher Order Function-----
+A higher-order function is a function that takes one or more functions as arguments or returns a function as a result.
+
+                -----Callback Function-----
+A callback function is a function passed as an argument to another function and is executed after the completion of a task.
+Eg: 
+        function processUserInput(name, callback){
+                console.log("Received Input" + name);
+                callback(name);
+        }
+        function greetUser(name){
+                console.log(`Hello! ${name}`);
+        }
+        processUserInput("Shruti", greetUser);
+
+        // Here, since we're passing this "greetUser" function into "processUserInput" then, this "processUserInput" is called as "Higher-Order-Function".
+        // Here, the function which we're passing as an argument to another function is called as "callback function".
+
+Again one more example: WAP to perform mathematical operations using callback() and two variables in JS.
+
+---> Code Snippet:
+       
+       const mathOperation = (a,b,operation) => {
+        return operation(a,b);
+       }
+
+       const add = (a,b)=>{ // While passing this as an arg to other function, this "add()" becomes the callback function.
+        return a+b;
+       }
+
+       const sub = (a,b)=>{
+        return a-b;
+       }
+
+       const mul = (a,b)=>{
+        return a*b;
+       }
+
+        console.log(mathOperation(1,6,add));     
+        console.log(mathOperation(2,5,sub));
+        console.log(mathOperation(3,4,mul));      
+
+                -----Caallback Hell------
+
+It's also known as "Pyramid of Doom", refers to a situation in asynchronous JS programming where multiple nested callbacks are used to handle asynchronous operations.
+This often results in code that is difficult to read, understand, and maintain due to its deeply nested structure.
+
+Eg:
+const myName = () =>{
+        console.log("Hello, everyone!");
+        setTimeout(()=>{
+                console.log("My first name is Shruti");
+        setTimeout(()=>{
+                console.log("My last name is Rouniyar");
+        setTimeout(()=>{
+                console.log("My recent hobby is singing");
+        setTimeout(()=>{
+                console.log("I love to play badminton");
+        },1000)
+        },1000)
+        },1000)
+        },1000)
+}
+
+                -----Promises-----
+A promise is like a placeholder for the result of an asynchronous operation.
+Promises, also have some phases/states: 
+   PROMISE ---> PENDING ---> SETTLED --->|- RESOLVED
+                                         |- REJECTED
+
+1. Pendings: Initial state, neither fulfilled nor rejected.
+2. Fulfilled ( Resolved ): The operation completed successfully.
+3. Rejected: The operation failed or encountered an error.
+
+Promises have built-in methods like "then" and "catch" to handle the results of asynchronous operations when they complete or encounter errors, making it easier to write asynchronous
+code that is more readable and maintainable compared to traditional callback-based opeations.
+
+Using Promise Constructor ( Class ):
+-> You can create a promise using Promise constructor. This involves creating a new instance of the Promise class, which takes a function as an argument. 
+This function, often referred as the "executor function", takes two parameters: resolve and reject.
+You call resolve when asynchronous operation is successful & reject when it encounters an error.
+
+Syntax: const promise = new Promise(function(resolve,reject){
+        // Your code goes here...
+        });
+Here, Promise is a constructor, function(resolve,reject) is a executor function, resolve is called when your function has a successful completion of an operation and reject is called when a function's operation fails and throws error.
+
+Eg:
+        const pr = new Promise((resolve, reject) => {
+                setTimeout(()=>{
+                        resolve("Hey, World!");
+                },2000);
+        });
+        pr.then((res)=>{
+                console.log(res);
+        }).catch((err)=>{
+                console.log(err);
+        }).finally(()=>{
+                console.log("Dont, worry it's just a demo");
+        });
+
+
+Some methods of Promises:
+1. Promise.all -> it is used when you want to wait for all promises to complete successfully. Reject state will throw an error.
+2. Promise.allSettled -> it is used when you want to wait for all promises to complete, regardless of success or failure, and get information about their outcomes.
+3. Promise.race -> it is used when you are interested in the result of the first promise that completes, regardless of success or failure.
+
+Syntax: Promise.all([promise1, promise2, promise3]).then((values)=>{
+        //Code blocks
+        }).catch((err) => {
+                // Code blocks
+        });
