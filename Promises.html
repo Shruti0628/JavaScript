@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning about Promises</title>
+    <link rel = "stylesheet" href = "style.css">
+</head>
+<body>
+    <div class = "container">
+        <h1> Welcome to Dad Jokes </h1>
+        <section class = "api_body"></section>
+        <button id = "fetchJoke"> Get Another Joke </button>
+    </div>
+    <script>
+        const apibody = document.querySelector('.api_body');
+        const apiUrl = "https://icanhazdadjoke.com/";
+        const fetchData = () => {
+            const response = fetch(apiUrl, {
+                headers: { // Adding headers are like labels or instructions for the server to request. They will tell the server how you want the response to be.
+                    'Accept': 'application/json'  // This header tells the server that we want the response in JSON format. (And, ususally is a MIME type (or a format identifier))
+                }
+            }).then((res)=>{
+                console.log(res);
+                return res.json();
+            }).then((data)=>{
+                console.log(data.title); // Logs the title of the response data
+                apibody.innerHTML = `<h2>${data.joke}</h2>`;
+            })
+            .catch((error)=>{
+                console.log("Error occurred: ", error);
+            });
+        };
+        fetchData();
+        document.getElementById('fetchJoke').addEventListener('click', fetchData);
+    </script>
+</body>
+</html>
