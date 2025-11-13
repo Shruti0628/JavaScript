@@ -193,3 +193,21 @@ Syntax: Promise.all([promise1, promise2, promise3]).then((values)=>{
         }).catch((err) => {
                 // Code blocks
         });
+
+
+
+
+Window: 
+1. Window is the main container, or say the global object and any operations related to entire browser window can be a part of window object.
+2. All members like objects, methods or properties. If they are the part of window object, then we don't refer the window object.
+3. Window has methods, properties and object. Ex: setTimeout() or setInterval() are methods, where as Document is the object of the Window and it also has a screen object with properties describing physical display.
+
+Document:
+1. Whereas DOM is the child of window object
+2. Where in DOM, we need to refer document, if we want to use the document object, methods, or properties
+3. Document is just the object of global object that is Window, which deals with document the HTML element themselves.
+
+Window Object:
+The Window object represents global window in a browser. Both BOM (Browser Object Model) and DOM (Document Object Model) are part of window object.
+BOM: It represents the broswer as an object and provides methods and properties for interacting with browser itself. Eg: window.navigator for browser information, window.location for URL manipulation.
+DOM: It represents structured document as a tree of objects, where each object corresponds to a part of the document. DOM is primarily concerned with content of web pages that allows JS to interact with and manipulate HTML element.
